@@ -1,5 +1,5 @@
 import { ContactCard } from "@/components/ui/contact-card";
-import { MailIcon, PhoneIcon, MapPinIcon, CheckCircle, AlertCircle } from 'lucide-react';
+import { MailIcon, MapPinIcon, CheckCircle, AlertCircle } from 'lucide-react';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
 import { Label } from '@/components/ui/label';
@@ -12,7 +12,6 @@ const ContactSection = () => {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
-    phone: '',
     message: ''
   });
   const [isLoading, setIsLoading] = useState(false);
@@ -65,7 +64,6 @@ const ContactSection = () => {
         {
           from_name: formData.name,
           from_email: formData.email,
-          phone: formData.phone,
           message: formData.message,
           to_email: EMAILJS_CONFIG.TO_EMAIL,
         }
@@ -73,7 +71,7 @@ const ContactSection = () => {
 
       console.log('✅ Email sent successfully!', result);
       setStatus('success');
-      setFormData({ name: '', email: '', phone: '', message: '' });
+      setFormData({ name: '', email: '', message: '' });
     } catch (error: any) {
       console.error('❌ Failed to send email. Full error:', error);
       console.error('❌ Error message:', error?.message);
@@ -86,23 +84,18 @@ const ContactSection = () => {
   };
 
   return (
-    <section className="w-full bg-black py-20 px-8">
+    <section id="contact" className="w-full bg-gradient-to-br from-pink-50 to-white py-20 px-8 border-t border-pink-100">
       <div className="max-w-6xl mx-auto">
         <ContactCard
           title="Get in Touch"
           description="Have questions about our apps or need support? We'd love to hear from you. Fill out the form and we'll get back to you within 1 business day."
-          className="bg-gray-900 border-gray-800 text-white"
-          formSectionClassName="bg-gray-800/50"
+          className="bg-white border-pink-100 text-gray-900 shadow-lg shadow-pink-100/50"
+          formSectionClassName="bg-pink-50/50"
           contactInfo={[
             {
               icon: MailIcon,
               label: 'Email',
               value: 'kelotechfi@gmail.com',
-            },
-            {
-              icon: PhoneIcon,
-              label: 'Phone',
-              value: '+358 44 358 1828',
             },
             {
               icon: MapPinIcon,
@@ -114,48 +107,37 @@ const ContactSection = () => {
         >
           <form onSubmit={handleSubmit} className="w-full space-y-4">
             <div className="flex flex-col gap-2">
-              <Label className="text-white">Name *</Label>
-              <Input 
-                type="text" 
+              <Label className="text-gray-700">Name *</Label>
+              <Input
+                type="text"
                 name="name"
                 value={formData.name}
                 onChange={handleInputChange}
                 placeholder="Your name"
-                className="bg-gray-900 border-gray-700 text-white placeholder:text-gray-400"
+                className="bg-white border-gray-200 text-gray-900 placeholder:text-gray-400"
                 required
               />
             </div>
             <div className="flex flex-col gap-2">
-              <Label className="text-white">Email *</Label>
-              <Input 
-                type="email" 
+              <Label className="text-gray-700">Email *</Label>
+              <Input
+                type="email"
                 name="email"
                 value={formData.email}
                 onChange={handleInputChange}
                 placeholder="your.email@example.com"
-                className="bg-gray-900 border-gray-700 text-white placeholder:text-gray-400"
+                className="bg-white border-gray-200 text-gray-900 placeholder:text-gray-400"
                 required
               />
             </div>
             <div className="flex flex-col gap-2">
-              <Label className="text-white">Phone</Label>
-              <Input 
-                type="tel" 
-                name="phone"
-                value={formData.phone}
-                onChange={handleInputChange}
-                placeholder="+358 44 358 1828"
-                className="bg-gray-900 border-gray-700 text-white placeholder:text-gray-400"
-              />
-            </div>
-            <div className="flex flex-col gap-2">
-              <Label className="text-white">Message *</Label>
-              <Textarea 
+              <Label className="text-gray-700">Message *</Label>
+              <Textarea
                 name="message"
                 value={formData.message}
                 onChange={handleInputChange}
                 placeholder="Tell us about your project or how we can help..."
-                className="bg-gray-900 border-gray-700 text-white placeholder:text-gray-400 min-h-[100px]"
+                className="bg-white border-gray-200 text-gray-900 placeholder:text-gray-400 min-h-[100px]"
                 required
               />
             </div>
@@ -175,8 +157,8 @@ const ContactSection = () => {
               </div>
             )}
 
-            <Button 
-              className="w-full bg-white text-black hover:bg-gray-200 transition-colors disabled:opacity-50 disabled:cursor-not-allowed" 
+            <Button
+              className="w-full bg-gradient-to-r from-pink-500 to-rose-600 text-white hover:from-pink-600 hover:to-rose-700 transition-colors disabled:opacity-50 disabled:cursor-not-allowed rounded-full"
               type="submit"
               disabled={isLoading}
             >

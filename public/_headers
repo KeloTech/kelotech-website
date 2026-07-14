@@ -1,5 +1,8 @@
-/assets/*
+/assets/*.js
   Content-Type: application/javascript
+
+/assets/*.css
+  Content-Type: text/css
 
 /*.css
   Content-Type: text/css
@@ -9,3 +12,6 @@
 
 /*.wasm
   Content-Type: application/wasm
+
+/assets/sipster/*
+  Cache-Control: public, max-age=604800
