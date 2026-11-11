@@ -5,7 +5,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { SplitText } from "@/components/ui/split-text";
-import { Check, CheckCircle, AlertCircle, MailIcon, MapPinIcon, Smartphone, Globe, Menu, X } from "lucide-react";
+import { Check, CheckCircle, AlertCircle, MailIcon, MapPinIcon, Globe, Menu, X } from "lucide-react";
 import { FaApple, FaGooglePlay, FaAndroid, FaAppStoreIos } from "react-icons/fa";
 import emailjs from "@emailjs/browser";
 import { EMAILJS_CONFIG } from "@/config/emailjs";
@@ -55,7 +55,7 @@ function Nav({ lang, setLang, t }: { lang: Lang; setLang: (l: Lang) => void; t: 
             window.scrollTo({ top: 0, behavior: "smooth" });
           }}
         >
-          <Smartphone className="h-5 w-5 text-sky-700" />
+          <img src="/assets/kelotech/icon.png" alt="" className="h-7 w-7" width={28} height={28} />
           <span className="text-slate-900 font-semibold tracking-tight">Kelotech</span>
         </a>
         <nav className="hidden md:flex items-center gap-6 text-sm text-slate-600">
@@ -303,6 +303,13 @@ function Contact({ t }: { t: Translation }) {
     <section id="contact" className="w-full bg-white border-t border-slate-200 py-20 px-4 sm:px-6 lg:px-8">
       <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16">
         <div>
+          <img
+            src="/assets/kelotech/icon.png"
+            alt="Kelotech"
+            className="h-14 w-14 mb-5"
+            width={56}
+            height={56}
+          />
           <h2 className="text-2xl md:text-4xl font-semibold tracking-tight text-slate-900">{c.title}</h2>
           <p className="mt-4 text-slate-600">{c.description}</p>
           <div className="mt-8 space-y-4">
@@ -371,7 +378,7 @@ function Footer({ t }: { t: Translation }) {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 p-8">
           <div className="flex flex-col gap-4">
             <div className="flex items-center gap-2">
-              <Smartphone className="h-6 w-6 text-sky-700" aria-hidden />
+              <img src="/assets/kelotech/icon.png" alt="" className="h-7 w-7" width={28} height={28} aria-hidden />
               <span className="text-slate-900 text-xl font-semibold">Kelotech</span>
             </div>
             <p className="text-slate-500 max-w-sm text-sm leading-relaxed">{t.footer.tagline}</p>
